@@ -1,0 +1,14 @@
+
+.DS_Store
+.idea/dictionaries/tomasotrinci.xml
+.idea/inspectionProfiles/profiles_settings.xml
+.idea/Linear-programming.iml
+.idea/misc.xml
+.idea/modules.xml
+.idea/rSettings.xml
+.idea/workspace.xml
+__pycache__/config.cpython-37.pyc
+__pycache__/contraints.cpython-37.pyc
+__pycache__/or_model.cpython-37.pyc
+__pycache__/utilities.cpython-37.pyc
+__pycache__/variables.cpython-37.pyc
