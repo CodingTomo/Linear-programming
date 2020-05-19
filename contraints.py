@@ -1,7 +1,8 @@
 
 def add_seat_constraints(model, projects, bacchetta, managers, n_seats, n_projects, p_w):
     weighted_sum_project = 0
-
+    print(p_w)
+    print(p_w.sum(axis=1))
     for i in range(n_projects):
         weighted_sum_project = weighted_sum_project + projects[i] * p_w.sum(axis=1).iloc[i]
     model.Add(weighted_sum_project + bacchetta + sum(managers) <= n_seats)

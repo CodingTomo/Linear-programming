@@ -29,7 +29,7 @@ def split_table(df):
                           'manager_1', 'manager_2', 'manager_3',
                           's_manager_1',
                           'revenue', 'difficulty', 'eta',
-                          'dimension', 'home_eff'], axis=1)
+                          'dimension', 'home_eff', 'project'], axis=1)
 
     p_o = df.copy()[['revenue', 'home_eff']]
 
