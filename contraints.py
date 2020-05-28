@@ -1,8 +1,6 @@
 
 def add_seat_constraints(model, projects, bacchetta, managers, n_seats, n_projects, p_w):
     weighted_sum_project = 0
-    print(p_w)
-    print(p_w.sum(axis=1))
     for i in range(n_projects):
         weighted_sum_project = weighted_sum_project + projects[i] * p_w.sum(axis=1).iloc[i]
     model.Add(weighted_sum_project + bacchetta + sum(managers) <= n_seats)
@@ -50,6 +48,25 @@ def add_manager_constraints(model, p_conditions, managers, n_managers):
         model.Add(managers[j] == 0).OnlyEnforceIf(p_conditions[j].Not())
 
     return
+
+
+def add_project_condition_constraint(model, projects, p_conditions, n_projects):
+    for i in range(n_projects):
+        model.Add(projects[i] == 1).OnlyEnforceIf(p_conditions[i])
+        model.Add(projects[i] == 0).OnlyEnforceIf(p_conditions[i].Not())
+
+
+def add_worker_constraints(model, p_conditions, workers, project_worker):
+    # model.Add(workers[i] == 1)
+    return
+
+
+def add_terminated_projects_constraints(model, projects, terminated_projects):
+    if len(terminated_projects) > 0:
+        for i in terminated_projects:
+            model.Add(projects[i] == 0)
+    return
+
 
 
 
